@@ -6,6 +6,7 @@ import (
   "log"
   "time"
   "math/rand"
+  "strconv"
 )
 
 func init() {
@@ -13,7 +14,7 @@ func init() {
 }
 
 type FoodItem struct {
-  No int
+  No string
   Price int
 }
 
@@ -132,10 +133,10 @@ func main() {
 
   var foods []FoodItem
   var ptime1, ptime2  int
-  size := 1000
+  size := 10000
   for i := 0; i < size; i++ {
       var items FoodItem
-      items.No = i
+      items.No = strconv.Itoa(i) + "Shohin"
       items.Price = rand.Intn(size-1)
       foods = append(foods, items)
   }
@@ -147,10 +148,12 @@ func main() {
 */
     log.Printf("starting time : %v\n",time.Now())           // => "2015-05-05 07:23:30.757800829 +0900 JST"
     ptime1 = time.Now().Nanosecond()
+    ptimes := time.Now()
   foods = Bubble(foods)
 
     log.Printf("completed time : %v\n",time.Now())           // => "2015-05-05 07:23:30.757800829 +0900 JST"
     ptime2 = time.Now().Nanosecond()
+    ptimee := time.Now()
 /*
   for _, food := range foods {
     log.Printf("商品No：%d, 価格:%d\n", food.No, food.Price)
@@ -167,4 +170,8 @@ func main() {
 
   log.Printf("Elapse time(Nanosecond) : %d\n", ptime2 - ptime1 )   // Elapse time
 //  log.Printf("Elapse time2 is %d\n", ptime2 )   // Elapse time
+  difference := ptimee.Sub(ptimes)
+  log.Printf("difference = %v\n", difference)
+
+
 }

@@ -69,7 +69,7 @@ func main() {
   var foods,bsort []FoodItem
 //  var hsort []Hsort
   var ptime1, ptime2  int
-  size := 1000
+  size := 10000
   for i := 0; i < size; i++ {   // Creating random numbers
       var items FoodItem
       items.No = strconv.Itoa(i) + "Shohin"

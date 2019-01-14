@@ -14,7 +14,7 @@ func init() {
 }
 
 const BUFSIZE = 1024 // 読み込みバッファのサイズ
-const readF = "sample4.txt"
+const readF = "BMText.txt"
 const kwd = "Los Altos"
 
 type chk_box struct{
@@ -84,7 +84,7 @@ func BMSearch(a []byte, b []byte) *[]string {
 
     // 比較と文字列移動の制御と、
     for i:=0;  i <= len(a)-len(b) ;i++ {
-      log.Printf("Curren pos and its char is : %d, %s .", i, string(a[i]))
+//      log.Printf("Curren pos and its char is : %d, %s .", i, string(a[i]))
       for j:=len(b)-1 ; j >= 0 ; j-- {
 //        jj = j              // used later
 
@@ -94,7 +94,7 @@ func BMSearch(a []byte, b []byte) *[]string {
         }
         if j == 0 {  //
           okrst = append(okrst,string(b) + ":" + strconv.Itoa(i) )   // ヒットした箇所をsliceに追加
-          log.Printf("Hit here is %s, %s",string(b), strconv.Itoa(i))
+//          log.Printf("Hit here is %s, %s",string(b), strconv.Itoa(i))
         }
       }
       if (i + imove) < len(a) {

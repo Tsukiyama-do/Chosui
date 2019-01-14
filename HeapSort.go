@@ -178,7 +178,7 @@ func main() {
   var foods,bsort []FoodItem
 //  var hsort []Hsort
   var ptime1, ptime2  int
-  size := 100
+  size := 10000
   for i := 0; i < size; i++ {   // Creating random numbers
       var items FoodItem
       items.No = strconv.Itoa(i) + "Shohin"
@@ -195,10 +195,12 @@ func main() {
 */
     log.Printf("starting time : %v\n",time.Now())           // => "2015-05-05 07:23:30.757800829 +0900 JST"
     ptime1 = time.Now().Nanosecond()
+    ptimes := time.Now()
      bsort = HeapSort(foods)      //  ヒープソートのプログラム
 
     log.Printf("completed time : %v\n",time.Now())           // => "2015-05-05 07:23:30.757800829 +0900 JST"
     ptime2 = time.Now().Nanosecond()
+    ptimee := time.Now()
 
   log.Println("After sort. \n")
 
@@ -218,4 +220,9 @@ func main() {
 
   log.Printf("Elapse time(Nanosecond) : %d\n", ptime2 - ptime1 )   // Elapse time
 //  log.Printf("Elapse time2 is %d\n", ptime2 )   // Elapse time
+  difference := ptimee.Sub(ptimes)
+  log.Printf("difference = %v\n", difference)
+
+
+
 }
