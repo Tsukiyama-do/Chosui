@@ -77,7 +77,10 @@ func fish_check(a interface{}) {
 		fmt.Println("私はfloat64です")
 	case *shop_info:
 		fmt.Println("私はshop_infoです")
-    fmt.Println(a)
+    fmt.Println(a.(*shop_info).Name)    //  これぞインターフェイスのアクセス方法です！
+    if aj, ok := a.(*shop_info); ok {    //  これがインターフェイスからのキャストらしい
+      fmt.Println("casted! ", aj.Name)
+      }     
   case yasai:
 		fmt.Println("私はyasaiです")
 	default:

@@ -73,9 +73,11 @@ func main() {
     checkType(inq)
 
     var inr as_k
-    yname := hr_s("0000006")
-    inr = yname
-    fmt.Printf("Hum, this is result : %s \n", inr.myname())
+//    yname := hr_s("0000006")
+//    inr = yname
+    inr = hr_s("0000006")     //   この型で、この値と決めて、インターフェイスに値を入れる
+
+    fmt.Printf("Hum, this is result : %s \n", inr.myname())    // インターフェイスから、メソッドを呼べる
     checkType(inr)
 
 }

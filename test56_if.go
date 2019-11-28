@@ -12,7 +12,7 @@ type Stringer interface {
 type Binary uint64
 
 func (i Binary) String() string {
- return strconv.Uitob64(i.Get(), 2)
+ return strconv.Itob64(i.Get())
 }
 
 func (i Binary) Get() uint64 {

@@ -2,6 +2,9 @@ package main
 
 import "fmt"
 
+type MyType uint
+
+
 func main() {
 	var i interface{}
 
@@ -12,7 +15,6 @@ func main() {
 	i = "aaaaaa"
 	checkType(i)
 
-	type MyType uint
 	i = MyType(4)
 	checkType(i)
 
@@ -21,12 +23,16 @@ func main() {
 func checkType(i interface{}) {
 	switch i.(type) {
 	case int:
-		fmt.Println("私はintです")
+		fmt.Printf("私はintです %d\n", i)
 	case float64:
-		fmt.Println("私はfloat64です")
+		fmt.Printf("私はfloat64です %f\n", i)
 	case string:
-		fmt.Println("私はstringです")
+		fmt.Printf("私はstringです %s\n", i)
+	case MyType:
+		fmt.Printf("私はMyTypeです %d\n",i)
+
 	default:
-		fmt.Println("私はそれ以外です")
+		fmt.Printf("私はそれ以外です")
 	}
+
 }
